@@ -37,3 +37,11 @@
 - [ ] 기존 Hermes worker profile과 중복/승격/폐기 후보가 분리되어 있다.
 - [ ] Claude Code review와 Hermes 검증을 통과한다.
 - [ ] 사용자 승인 후 Designer_Univers 본체에 반영한다.
+
+## Added in the second integration pass
+
+- `target-structure-current-aware.md` — current-aware final structure, preserving existing Designer_Univers folders.
+- `expert-pool-router-design.md` — practical router design that combines cost policy and Expert Pool execution.
+- `custom-harnesses/` — first-priority Designer_Univers custom harnesses, including the detailed `designer-knowledge-base` pilot.
+- `skills/designer-univers-expert-router/SKILL.md` — runtime skill for cost-aware expert selection.
+- `skills/designer-univers-knowledge-base/SKILL.md` — first converted pilot skill from H100 `64-knowledge-base-builder`.

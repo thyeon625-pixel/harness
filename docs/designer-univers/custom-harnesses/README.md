@@ -1,0 +1,27 @@
+# Designer_Univers Custom Harnesses
+
+This directory contains Designer_Univers-specific harness designs derived from Harness/Harness-100. These are staging artifacts in the GitHub fork. They are not yet absorbed into the canonical Designer_Univers workspace.
+
+## Adoption Rules
+
+- Use common agent spec.
+- Use cost-aware Expert Pool routing.
+- Use `System/Runs` for execution artifacts and `System/_drafts` for promotion candidates.
+- Inject protected-source rules by role.
+- Map to existing worker profiles before creating new workers.
+- Absorb into Designer_Univers only after review and user approval.
+
+## First-Priority Harnesses Created
+
+| Harness | Status | Source Inspiration |
+|---|---|---|
+| designer-knowledge-base | detailed pilot conversion | H100 64 knowledge-base-builder |
+| designer-audit-report | scaffold | H100 94 audit-report |
+| designer-brand-identity | scaffold | H100 06 brand-identity |
+| designer-visual-storytelling | scaffold | H100 15 visual-storytelling |
+| designer-design-system | scaffold | H100 36 design-system |
+| designer-space-concept-board | scaffold | H100 77 space-concept-board |
+| designer-market-research | scaffold | H100 44 market-research |
+| designer-report-generator | scaffold | H100 82 report-generator |
+| designer-technical-writer | scaffold | H100 81 technical-writer |
+| designer-operations-manual | scaffold | H100 92 operations-manual |
