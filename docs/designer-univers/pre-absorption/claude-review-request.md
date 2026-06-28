@@ -8,6 +8,14 @@ You are reviewing the GitHub fork branch for Designer_Univers harness adaptation
 Repository/branch:
 - https://github.com/thyeon625-pixel/harness/tree/feat/designer-univers-harness
 
+Changed Designer_Univers output path rule:
+- Do not write review output to root `_workspace`, `Agent Shared`, old iCloud paths, or the GitHub repo.
+- The correct Claude Code result inbox is `Designer Master/System/Logs/Agent_Orchestration/Claude_Results/review/`.
+- For this review, write the result JSON to the exact path supplied by Hermes dispatch:
+  `Designer Master/System/Logs/Agent_Orchestration/Claude_Results/review/<task_id>.result.json`.
+- The matching Hermes instruction record lives at:
+  `Designer Master/System/Logs/Agent_Orchestration/Hermes_Instructions/review/<task_id>.md`.
+
 Review scope:
 1. Verify that the branch does not require direct absorption into Designer_Univers yet.
 2. Check whether the common agent spec is runtime-portable across Hermes, Claude Code, Codex, and Kanban workers.
