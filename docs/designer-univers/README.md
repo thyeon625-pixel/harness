@@ -45,3 +45,14 @@
 - `custom-harnesses/` — first-priority Designer_Univers custom harnesses, including the detailed `designer-knowledge-base` pilot.
 - `skills/designer-univers-expert-router/SKILL.md` — runtime skill for cost-aware expert selection.
 - `skills/designer-univers-knowledge-base/SKILL.md` — first converted pilot skill from H100 `64-knowledge-base-builder`.
+
+
+## Pre-absorption package
+
+Before any canonical Designer_Univers absorption, use `pre-absorption/` and run:
+
+```bash
+python3 scripts/designer_univers_validate.py
+```
+
+This validates required files, skill frontmatter, H100 candidate scaffolds, workspace safety, protected-source markers, and Expert Pool policy.

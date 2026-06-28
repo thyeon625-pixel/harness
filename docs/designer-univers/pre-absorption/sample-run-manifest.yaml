@@ -1,0 +1,32 @@
+run_id: 20260701_000000_knowledge-base-dry-run
+harness: designer-knowledge-base
+source_repo: thyeon625-pixel/harness
+source_branch: feat/designer-univers-harness
+mode: draft-write
+cost_tier: L1
+actor: hermes
+canonical_root: /Users/taehyeon/Library/CloudStorage/Dropbox-Thyeon625/Designer_Univers
+workspace: Designer Master/System/Runs/20260701_000000_knowledge-base-dry-run/workspace
+external_services:
+  policy: none
+  used: []
+protected_sources:
+  involved: false
+  read: []
+  modified: []
+routing:
+  router: harness-router
+  selected_experts:
+    - knowledge-collector
+    - taxonomy-designer
+  excluded_experts:
+    wiki-builder: "not needed for inventory/taxonomy dry-run"
+    search-optimizer: "not needed until draft indexes are requested"
+    maintenance-planner: "not needed until lifecycle plan is requested"
+    safety-reviewer: "not needed unless protected sources or promotion candidates are involved"
+review_required: true
+ledger_entry_required_on_absorption: true
+outputs:
+  inventory: workspace/01_knowledge_inventory.md
+  taxonomy: workspace/02_taxonomy_proposal.md
+  review: review/06_safety_review.md
