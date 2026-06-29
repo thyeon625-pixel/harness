@@ -30,3 +30,8 @@ Use this staging skill when routing GitHub-only Designer_Univers harness work fo
 - `python3 scripts/designer_univers_validate.py` passes in the fork.
 - Outputs distinguish evidence, interpretation, proposal, and approved knowledge.
 - No runtime/canonical/public/external paid action occurs without separate approval.
+
+## Dry-Run Scenario
+
+Use the `## Dry-Run Prompt` in `docs/designer-univers/custom-harnesses/designer-operations-manual/HARNESS.md` for staging verification. Dry-runs must remain GitHub-only or System/Runs-only drafts and must not create canonical Designer_Univers files.
+
