@@ -40,6 +40,10 @@ required = [
     'skills/designer-univers-visual-storytelling/SKILL.md',
     'skills/designer-univers-design-system/SKILL.md',
     'skills/designer-univers-space-concept-board/SKILL.md',
+    'skills/designer-univers-market-research/SKILL.md',
+    'skills/designer-univers-report-generator/SKILL.md',
+    'skills/designer-univers-technical-writer/SKILL.md',
+    'skills/designer-univers-operations-manual/SKILL.md',
 ]
 for rel in required:
     if not (ROOT / rel).exists(): err(f'missing required file: {rel}')
@@ -97,6 +101,10 @@ detailed_expected_agents = {
     'designer-visual-storytelling': {'story-architect', 'essay-writer', 'image-prompt-planner', 'layout-planner', 'editorial-reviewer'},
     'designer-design-system': {'token-designer', 'pattern-designer', 'a11y-reviewer', 'documentation-writer', 'implementation-planner'},
     'designer-space-concept-board': {'style-analyst', 'moodboard-designer', 'item-curator', 'budget-scope-planner', 'concept-reviewer'},
+    'designer-market-research': {'industry-analyst', 'competitor-analyst', 'consumer-analyst', 'trend-analyst', 'research-reviewer'},
+    'designer-report-generator': {'data-collector', 'analysis-synthesizer', 'visualization-planner', 'report-writer', 'executive-summarizer'},
+    'designer-technical-writer': {'info-architect', 'doc-writer', 'diagram-maker', 'tech-reviewer', 'version-controller'},
+    'designer-operations-manual': {'document-analyst', 'flowchart-designer', 'manual-writer', 'faq-builder', 'training-producer'},
 }
 for harness_name, expected in detailed_expected_agents.items():
     hdir = ROOT / 'docs/designer-univers/custom-harnesses' / harness_name
@@ -148,7 +156,8 @@ if custom_readme.exists() and 'Shared Agents' not in custom_readme.read_text(enc
     err('custom-harnesses/README.md: missing shared safety-reviewer note')
 if custom_readme.exists() and '${DESIGNER_UNIVERS_ROOT}' not in custom_readme.read_text(encoding='utf-8', errors='ignore'):
     err('custom-harnesses/README.md: missing root placeholder definition')
-for rel in ['docs/designer-univers/custom-harnesses/designer-audit-report/HARNESS.md', 'docs/designer-univers/custom-harnesses/designer-brand-identity/HARNESS.md']:
+for harness_name in detailed_expected_agents:
+    rel = f'docs/designer-univers/custom-harnesses/{harness_name}/HARNESS.md'
     if (ROOT / rel).exists() and 'Shared Safety Reviewer' not in read(rel):
         err(f'{rel}: missing shared safety-reviewer cross-reference')
 
