@@ -1,7 +1,7 @@
 # Post-M0 Audit — 2026-04-18
 
 **담당:** repo-auditor 에이전트
-**대상 저장소:** `/Users/robin/IdeaProjects/harness`
+**대상 저장소:** `${HARNESS_REPO_ROOT}`
 **상위 작업:** release-engineer / content-creator / launch-strategist / community-scout 4개 에이전트의 M0 Quick Wins 병렬 적용 결과 통합 검증
 **검증 방식:** 읽기만 (Edit/Write 금지). `git diff`·`git status`·파일별 Read로 정합성·충돌·섹션 유실 판정.
 
@@ -206,19 +206,19 @@ feat: M0 Quick Wins — 포지셔닝 선언, 버전 정합성, 거버넌스 공�
 
 ## 부록. 감사 근거 파일 목록
 
-- `/Users/robin/IdeaProjects/harness/README.md` (317줄)
-- `/Users/robin/IdeaProjects/harness/README_KO.md` (299줄)
-- `/Users/robin/IdeaProjects/harness/README_JA.md` (306줄)
-- `/Users/robin/IdeaProjects/harness/.claude-plugin/plugin.json` (수정됨, §2.1 Critical)
-- `/Users/robin/IdeaProjects/harness/.claude-plugin/marketplace.json`
-- `/Users/robin/IdeaProjects/harness/CHANGELOG.md`
-- `/Users/robin/IdeaProjects/harness/CONTRIBUTING.md`
-- `/Users/robin/IdeaProjects/harness/.github/ISSUE_TEMPLATE/{bug_report,feature_request,question,config}.yml`
-- `/Users/robin/IdeaProjects/harness/.github/PULL_REQUEST_TEMPLATE.md`
-- `/Users/robin/IdeaProjects/harness/docs/experimental-dependency.md`
-- `/Users/robin/IdeaProjects/harness/docs/quickstart.md`
-- `/Users/robin/IdeaProjects/harness/docs/show-hn-launch-kit.md`
-- `/Users/robin/IdeaProjects/harness/_workspace/release/audit-2026-04-18.md`
-- `/Users/robin/IdeaProjects/harness/_workspace/community/issue-{2,3}-reply.md`
+- `${HARNESS_REPO_ROOT}/README.md` (317줄)
+- `${HARNESS_REPO_ROOT}/README_KO.md` (299줄)
+- `${HARNESS_REPO_ROOT}/README_JA.md` (306줄)
+- `${HARNESS_REPO_ROOT}/.claude-plugin/plugin.json` (수정됨, §2.1 Critical)
+- `${HARNESS_REPO_ROOT}/.claude-plugin/marketplace.json`
+- `${HARNESS_REPO_ROOT}/CHANGELOG.md`
+- `${HARNESS_REPO_ROOT}/CONTRIBUTING.md`
+- `${HARNESS_REPO_ROOT}/.github/ISSUE_TEMPLATE/{bug_report,feature_request,question,config}.yml`
+- `${HARNESS_REPO_ROOT}/.github/PULL_REQUEST_TEMPLATE.md`
+- `${HARNESS_REPO_ROOT}/docs/experimental-dependency.md`
+- `${HARNESS_REPO_ROOT}/docs/quickstart.md`
+- `${HARNESS_REPO_ROOT}/docs/show-hn-launch-kit.md`
+- `${HARNESS_REPO_ROOT}/_workspace/release/audit-2026-04-18.md`
+- `${HARNESS_REPO_ROOT}/_workspace/community/issue-{2,3}-reply.md`
 
 감사 커맨드 로그: `git status`, `git diff --stat`, `git diff .claude-plugin/plugin.json`, `git show HEAD:README.md`, 각 파일 Read 도구 호출.

@@ -89,6 +89,8 @@ for p in agent_dir.glob('*.md'):
     for marker in ['runtime_targets:', 'role_class:', 'Protected Source Rules', 'Workspace Rules', 'Completion Criteria']:
         if marker not in text: err(f'{rel}: missing common spec marker {marker}')
 
+# Keep this map in sync whenever a scaffold becomes a detailed pilot.
+# The validator intentionally fails if the HARNESS.md/agents set is only half-converted.
 detailed_expected_agents = {
     'designer-audit-report': {'audit-scope-designer', 'checklist-builder', 'findings-analyst', 'recommendation-writer', 'tracking-manager'},
     'designer-brand-identity': {'brand-strategist', 'naming-specialist', 'copywriter', 'visual-director', 'identity-lens-reviewer'},
@@ -118,7 +120,9 @@ for harness_name, expected in detailed_expected_agents.items():
 
 positive_bad_patterns = ['create root `_workspace` as workspace', '프로젝트 루트에 생성한다', 'Create `_workspace/`']
 text_files = []
-for base in [ROOT / 'docs/designer-univers', ROOT / 'skills']:
+for base in [ROOT / 'docs/designer-univers', ROOT / 'skills', ROOT / '_workspace/release']:
+    if not base.exists():
+        continue
     for suffix in ('*.md', '*.yaml', '*.yml'):
         text_files.extend(base.rglob(suffix))
 for p in sorted(set(text_files)):
@@ -127,6 +131,8 @@ for p in sorted(set(text_files)):
         if pat in txt: err(f'{p.relative_to(ROOT)}: positive root workspace instruction: {pat}')
     if 'canonical_root: /Users/' in txt or ('/Users/' in txt and 'Designer_Univers' in txt and 'CloudStorage' in txt):
         err(f'{p.relative_to(ROOT)}: hard-coded personal Designer_Univers path')
+    if ('/Users/' in txt and '/robin/' in txt):
+        err(f'{p.relative_to(ROOT)}: hard-coded upstream example user path')
 
 # Cost routing must remain cheap by default; full-team or canonical routes must be opt-in.
 for h in harnesses:
