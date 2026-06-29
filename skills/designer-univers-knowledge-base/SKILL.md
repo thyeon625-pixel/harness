@@ -33,6 +33,8 @@ Do not use it to directly edit protected Identity/Philosophy files, move raw Per
 
 ## Required References
 
+When this skill is installed before docs-only absorption, these references may still live only in the GitHub fork. Use them as source references from the fork until the user separately approves docs-only copying into Designer_Univers.
+
 - `docs/designer-univers/custom-harnesses/designer-knowledge-base/HARNESS.md`
 - `docs/designer-univers/expert-pool-router-design.md`
 - `docs/designer-univers/workspace-policy.md`
@@ -43,10 +45,10 @@ Do not use it to directly edit protected Identity/Philosophy files, move raw Per
 
 1. **Route.** Use `designer-univers-expert-router` to assign cost tier and experts. Completion: a routing decision exists.
 2. **Create run manifest.** Use `Designer Master/System/Runs/{run_id}/run_manifest.yaml`. Completion: mode, cost tier, selected experts, protected-source involvement, and external-service policy are recorded.
-3. **Inventory.** Run `knowledge-collector` on approved source paths. Completion: `01_knowledge_inventory.md` exists.
-4. **Taxonomy.** Run `taxonomy-designer` only after inventory. Completion: `02_taxonomy_proposal.md` distinguishes existing structure from proposals.
-5. **Draft indexes/wiki only if requested.** Run `wiki-builder` and `search-optimizer` in L1/L2 modes. Completion: draft pages/index proposals exist under run workspace or promotion candidates.
-6. **Maintain.** Run `maintenance-planner` for lifecycle and quality controls. Completion: `05_maintenance_plan.md` exists.
+3. **Inventory.** Run `knowledge-collector` on approved source paths. Completion: `workspace/01_source_inventory.md` exists.
+4. **Taxonomy.** Run `taxonomy-designer` only after inventory. Completion: `workspace/02_taxonomy_draft.md` distinguishes existing structure from proposals.
+5. **Knowledge map and search plan.** Run `wiki-builder` and `search-optimizer` in L1/L2 modes. Completion: `workspace/03_knowledge_map.md` and `workspace/04_search_index_plan.md` exist.
+6. **Maintain.** Run `maintenance-planner` for lifecycle and quality controls. Completion: `workspace/05_maintenance_plan.md` exists.
 7. **Review.** Run `safety-reviewer` whenever protected sources or promotion candidates are involved. Completion: review output lists pass/fail and required fixes.
 8. **Report.** Hermes summarizes outputs and next steps. Completion: no canonical file changes are claimed unless separately applied and verified.
 
@@ -64,17 +66,21 @@ Do not use it to directly edit protected Identity/Philosophy files, move raw Per
 
 ```text
 Designer Master/System/Runs/{run_id}/
-├── run_manifest.yaml
+├── run_manifest.yaml                    # optional for non-synthetic runs
 ├── workspace/
-│   ├── 01_knowledge_inventory.md
-│   ├── 02_taxonomy_proposal.md
-│   ├── 03_wiki_drafts/
-│   └── 04_search_index_proposal.md
-├── outputs/
+│   ├── 00_input.md
+│   ├── 01_source_inventory.md
+│   ├── 02_taxonomy_draft.md
+│   ├── 03_knowledge_map.md
+│   ├── 04_search_index_plan.md
 │   └── 05_maintenance_plan.md
 ├── review/
-│   └── 06_safety_review.md
+│   ├── 06_safety_review.md
+│   └── 08_hermes_verification.md         # created by Hermes when verifying a pilot
+├── outputs/
+│   └── 07_knowledge_base_draft.md
 └── promotion_candidates/
+    └── README.md                         # gate notes; may contain zero candidates
 ```
 
 ## Common Pitfalls
