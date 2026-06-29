@@ -111,12 +111,17 @@ for harness_name, expected in detailed_expected_agents.items():
                 err(f'{rel}: missing detailed agent marker {marker}')
 
 positive_bad_patterns = ['create root `_workspace` as workspace', '프로젝트 루트에 생성한다', 'Create `_workspace/`']
-for p in list((ROOT / 'docs/designer-univers').rglob('*.md')) + list((ROOT / 'skills').glob('designer-univers*/**/*.md')):
+text_files = []
+for base in [ROOT / 'docs/designer-univers', ROOT / 'skills']:
+    for suffix in ('*.md', '*.yaml', '*.yml'):
+        text_files.extend(base.rglob(suffix))
+for p in sorted(set(text_files)):
     txt = p.read_text(encoding='utf-8', errors='ignore')
     for pat in positive_bad_patterns:
         if pat in txt: err(f'{p.relative_to(ROOT)}: positive root workspace instruction: {pat}')
-    if 'canonical_root: /Users/taehyeon/' in txt:
-        err(f'{p.relative_to(ROOT)}: hard-coded personal canonical_root path')
+    for pat in ['canonical_root: /Users/taehyeon/', '/Users/taehyeon/Library/CloudStorage/Dropbox-Thyeon625/Designer_Univers']:
+        if pat in txt:
+            err(f'{p.relative_to(ROOT)}: hard-coded personal Designer_Univers path')
 
 # Cost routing must remain cheap by default; full-team or canonical routes must be opt-in.
 for h in harnesses:
@@ -130,6 +135,8 @@ for h in harnesses:
 custom_readme = ROOT / 'docs/designer-univers/custom-harnesses/README.md'
 if custom_readme.exists() and 'Shared Agents' not in custom_readme.read_text(encoding='utf-8', errors='ignore'):
     err('custom-harnesses/README.md: missing shared safety-reviewer note')
+if custom_readme.exists() and '${DESIGNER_UNIVERS_ROOT}' not in custom_readme.read_text(encoding='utf-8', errors='ignore'):
+    err('custom-harnesses/README.md: missing root placeholder definition')
 for rel in ['docs/designer-univers/custom-harnesses/designer-audit-report/HARNESS.md', 'docs/designer-univers/custom-harnesses/designer-brand-identity/HARNESS.md']:
     if (ROOT / rel).exists() and 'Shared Safety Reviewer' not in read(rel):
         err(f'{rel}: missing shared safety-reviewer cross-reference')

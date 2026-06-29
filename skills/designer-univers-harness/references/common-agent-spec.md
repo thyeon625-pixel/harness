@@ -66,3 +66,7 @@ Every agent file must contain these sections:
 - [ ] External service use is recorded as `none`, `free-only`, or `approval-required`.
 - [ ] Next action is one of: `complete`, `needs_user_decision`, `needs_hermes_review`, `blocked`.
 ```
+
+## Root Placeholder
+
+`${DESIGNER_UNIVERS_ROOT}` means the canonical Designer_Univers root selected by Hermes at runtime. In Hyeon's local environment this currently resolves to the Dropbox-backed Designer_Univers folder, but public fork artifacts should keep the placeholder instead of hard-coding a personal absolute path.

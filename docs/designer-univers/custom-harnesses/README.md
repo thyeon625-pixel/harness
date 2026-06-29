@@ -29,3 +29,7 @@ This directory contains Designer_Univers-specific harness designs derived from H
 
 `designer-knowledge-base/agents/safety-reviewer.md` is the shared safety reviewer specification for all detailed pilots unless a harness explicitly defines a narrower safety reviewer. Detailed harnesses may reference `safety-reviewer` without duplicating the file in every harness directory; absorption planning must include this shared spec whenever any detailed pilot is moved forward.
 
+
+## Root Placeholder
+
+Use `${DESIGNER_UNIVERS_ROOT}` in fork-staged agent specs and manifests. Hermes resolves it to the actual canonical Designer_Univers root only during an approved local run or absorption step.
