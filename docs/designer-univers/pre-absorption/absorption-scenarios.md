@@ -57,6 +57,8 @@ Candidate later:
 designer-knowledge-base
 ```
 
+Reason: it includes the shared safety-reviewer pattern, is naturally draft-write, and can exercise the System/Runs path contract without public output or automation.
+
 Required approvals:
 
 - exact files to copy;

@@ -60,6 +60,9 @@ Designer Master/System/_drafts/harness-adaptation/
 
 Allowed contents for docs-only:
 
+The list below is a minimum decision-package view. See `docs-only-candidates.md` for the maximum safe docs-only candidate set.
+
+
 ```text
 docs/designer-univers/README.md
 docs/designer-univers/custom-harnesses/README.md
@@ -96,9 +99,9 @@ designer-knowledge-base
 
 Why:
 
-- it has the oldest detailed pilot;
-- it includes shared `safety-reviewer`;
-- it is naturally draft-write and can avoid canonical writes.
+- it includes the shared `safety-reviewer`;
+- it is naturally draft-write and can avoid canonical writes;
+- it is a good bounded test of the System/Runs path contract without requiring public output or runtime automation.
 
 Hard gates:
 

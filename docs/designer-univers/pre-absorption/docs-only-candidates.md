@@ -4,6 +4,9 @@ This file defines the maximum safe docs-only candidate set. It does not approve 
 
 ## Docs-Only Means
 
+For the shorter decision-oriented view, see `decision-package.md`. This file is the broader maximum candidate set.
+
+
 Docs-only absorption means copying documentation to a draft/review location in Designer_Univers. It does **not** install runtime skills, activate agents, modify System/Rules, or write Designer Earth knowledge.
 
 ## Candidate Target
