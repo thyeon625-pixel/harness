@@ -27,6 +27,7 @@ Use for private visual narrative planning, portfolio story drafts, reference-ana
 
 ## Verification
 
-- `python3 scripts/designer_univers_validate.py` passes in the fork.
+- In GitHub fork staging, `python3 scripts/designer_univers_validate.py` passes.
+- In canonical Designer_Univers runtime, use `/Users/taehyeon/.hermes/scripts/designer_baseline_audit.sh --verbose`.
 - Outputs distinguish source evidence, interpretation, draft proposal, and approved knowledge.
 - No runtime/code/purchase/public action occurs without separate approval.
