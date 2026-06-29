@@ -14,6 +14,7 @@ source: H100/ko/64-knowledge-base-builder
 mode_default: draft-write
 cost_default: L1
 workspace: Designer Master/System/Runs/{run_id}/workspace
+protected_scope: strict
 canonical_write: approval-required
 external_services: none by default; free-only for public web references if needed
 ```
@@ -109,7 +110,7 @@ System/Runs/{run_id}/review/06_safety_review.md
 | “Obsidian 인덱스 초안 생성” | L1-L2 | router, taxonomy-designer, wiki-builder, search-optimizer, safety-reviewer |
 | “공식 구조 변경” | L3 | full selected team + safety-reviewer + Claude review + Hermes verification |
 
-## Hard Rules
+## Protected Source Rules
 
 - Never create root `_workspace`.
 - Never modify `_Identity`, `_Philosophy`, Personal Thinking raw notes, Personal Inspiration originals, Eagle raw library, or Work Files originals.

@@ -30,6 +30,8 @@ required = [
     'docs/designer-univers/pre-absorption/dry-run-scenarios.md',
     'docs/designer-univers/pre-absorption/claude-review-request.md',
     'docs/designer-univers/pre-absorption/hermes-review-protocol.md',
+    'docs/designer-univers/pre-absorption/sample-run-manifest.yaml',
+    'docs/designer-univers/pre-absorption/validation-report.md',
     'skills/designer-univers-harness/SKILL.md',
     'skills/designer-univers-expert-router/SKILL.md',
     'skills/designer-univers-knowledge-base/SKILL.md',
@@ -56,6 +58,21 @@ for path in sorted((ROOT / 'skills').glob('designer-univers*/SKILL.md')):
 
 harnesses = sorted((ROOT / 'docs/designer-univers/custom-harnesses').glob('*/HARNESS.md'))
 if len(harnesses) != 10: err(f'expected 10 first-priority harness scaffolds, found {len(harnesses)}')
+
+# Every first-priority scaffold must preserve strict protection and block direct absorption.
+# The detailed pilot may include full Protected Source Rules; lightweight scaffolds must at
+# least carry the pre-use conversion checklist so half-converted harnesses cannot be
+# silently absorbed.
+for h in harnesses:
+    txt = h.read_text(encoding='utf-8', errors='ignore')
+    rel = h.relative_to(ROOT)
+    for marker in ['protected_scope: strict', 'safety-reviewer', 'System/Runs', 'promotion_candidates']:
+        if marker not in txt:
+            err(f'{rel}: missing scaffold safety marker {marker}')
+    if 'Protected Source Rules' not in txt and 'Inject protected-source rules' not in txt:
+        err(f'{rel}: missing protected-source conversion gate')
+    if 'Canonical absorption' not in txt and 'approval' not in txt.lower():
+        err(f'{rel}: missing canonical absorption approval gate')
 
 agent_dir = ROOT / 'docs/designer-univers/custom-harnesses/designer-knowledge-base/agents'
 expected_agents = {'knowledge-collector', 'taxonomy-designer', 'wiki-builder', 'search-optimizer', 'maintenance-planner', 'safety-reviewer'}

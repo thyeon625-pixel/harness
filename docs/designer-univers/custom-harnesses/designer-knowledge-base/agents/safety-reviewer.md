@@ -29,7 +29,7 @@ Verify protected-source, workspace, external-service, and promotion boundaries.
 Write only under:
 
 ```text
-Designer Master/System/Runs/{run_id}/workspace/06_safety_review.md
+Designer Master/System/Runs/{run_id}/review/06_safety_review.md
 ```
 
 or, after review, under:
@@ -56,7 +56,7 @@ Default external service policy is `none`. If a public web lookup is needed, req
 
 ## Completion Criteria
 
-- [ ] Output exists only under the allowed run workspace.
+- [ ] Output exists only under the allowed run review directory.
 - [ ] Protected sources were not modified or uploaded.
 - [ ] Claims distinguish source evidence from interpretation.
 - [ ] Next action is `complete`, `needs_safety_review`, or `blocked`.

@@ -7,10 +7,16 @@ This plan covers the future movement from the GitHub fork branch into the canoni
 ```text
 repo: thyeon625-pixel/harness
 branch: feat/designer-univers-harness
-latest_known_commit: update-before-absorption
+latest_known_commit: record-remote-sha-immediately-before-absorption
 ```
 
-Before absorption, update `latest_known_commit` to the actual remote SHA.
+Before absorption, Hermes must update `latest_known_commit` to the actual remote SHA from:
+
+```bash
+git ls-remote --heads origin feat/designer-univers-harness
+```
+
+This is the same remote-source verification required by `hermes-review-protocol.md` Step 1. If the SHA in this plan does not match the branch head being absorbed, stop and re-run review.
 
 ## Absorption Principle
 
