@@ -115,6 +115,24 @@ for p in list((ROOT / 'docs/designer-univers').rglob('*.md')) + list((ROOT / 'sk
     txt = p.read_text(encoding='utf-8', errors='ignore')
     for pat in positive_bad_patterns:
         if pat in txt: err(f'{p.relative_to(ROOT)}: positive root workspace instruction: {pat}')
+    if 'canonical_root: /Users/taehyeon/' in txt:
+        err(f'{p.relative_to(ROOT)}: hard-coded personal canonical_root path')
+
+# Cost routing must remain cheap by default; full-team or canonical routes must be opt-in.
+for h in harnesses:
+    txt = h.read_text(encoding='utf-8', errors='ignore')
+    rel = h.relative_to(ROOT)
+    if 'default_cost_tier: L1' not in txt and 'cost_default: L1' not in txt:
+        err(f'{rel}: missing L1 default cost tier')
+    if 'L3' in txt and 'approval' not in txt.lower():
+        err(f'{rel}: L3/canonical route lacks approval gate')
+
+custom_readme = ROOT / 'docs/designer-univers/custom-harnesses/README.md'
+if custom_readme.exists() and 'Shared Agents' not in custom_readme.read_text(encoding='utf-8', errors='ignore'):
+    err('custom-harnesses/README.md: missing shared safety-reviewer note')
+for rel in ['docs/designer-univers/custom-harnesses/designer-audit-report/HARNESS.md', 'docs/designer-univers/custom-harnesses/designer-brand-identity/HARNESS.md']:
+    if (ROOT / rel).exists() and 'Shared Safety Reviewer' not in read(rel):
+        err(f'{rel}: missing shared safety-reviewer cross-reference')
 
 safety_terms = ['_Identity', '_Philosophy', 'Personal Thinking', 'Personal Inspiration', 'Eagle', 'Work Files']
 for rel in ['docs/designer-univers/protected-source-injection.md', 'docs/designer-univers/custom-harnesses/designer-knowledge-base/HARNESS.md']:

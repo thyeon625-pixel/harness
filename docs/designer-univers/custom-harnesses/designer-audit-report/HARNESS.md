@@ -34,6 +34,10 @@ canonical_write: approval-required
 | `tracking-manager` | follow-up ledger and verification status | Hermes ledger keeper | when audit creates follow-ups |
 | `safety-reviewer` | protected-source and promotion boundary check | designer_reviewer | required for protected or absorption audits |
 
+## Shared Safety Reviewer
+
+This harness references the shared `safety-reviewer` spec at `designer-knowledge-base/agents/safety-reviewer.md` rather than duplicating the file locally. If this pilot is ever absorbed, include that shared safety reviewer spec or an approved equivalent.
+
 ## Routing Matrix
 
 | Request | Cost Tier | Experts |

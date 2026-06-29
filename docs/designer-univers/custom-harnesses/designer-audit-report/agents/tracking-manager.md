@@ -3,7 +3,7 @@ name: tracking-manager
 runtime_targets: [hermes, claude-code, codex, kanban-worker]
 role_class: ledger
 owner_system: Designer_Univers
-canonical_root: /Users/taehyeon/Library/CloudStorage/Dropbox-Thyeon625/Designer_Univers
+canonical_root: ${DESIGNER_UNIVERS_ROOT}
 allowed_modes: [read-only, draft-write]
 default_mode: read-only
 cost_tier: L1

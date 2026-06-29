@@ -10,7 +10,7 @@ name: agent-name
 runtime_targets: [hermes, claude-code, codex, kanban-worker]
 role_class: collector | analyst | creator | reviewer | orchestrator | router | maintainer
 owner_system: Designer_Univers
-canonical_root: /Users/taehyeon/Library/CloudStorage/Dropbox-Thyeon625/Designer_Univers
+canonical_root: ${DESIGNER_UNIVERS_ROOT}
 allowed_modes: [read-only, draft-write, approved-write]
 default_mode: read-only
 cost_tier: L0 | L1 | L2 | L3
