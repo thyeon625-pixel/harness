@@ -25,6 +25,7 @@ This directory contains Designer_Univers-specific harness designs derived from H
 | designer-report-generator | detailed pilot conversion | H100 82 report-generator |
 | designer-technical-writer | detailed pilot conversion | H100 81 technical-writer |
 | designer-operations-manual | detailed pilot conversion | H100 92 operations-manual |
+
 ## Shared Agents
 
 `designer-knowledge-base/agents/safety-reviewer.md` is the shared safety reviewer specification for all detailed pilots unless a harness explicitly defines a narrower safety reviewer. Detailed harnesses may reference `safety-reviewer` without duplicating the file in every harness directory; absorption planning must include this shared spec whenever any detailed pilot is moved forward.
