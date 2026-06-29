@@ -16,8 +16,8 @@ This directory contains Designer_Univers-specific harness designs derived from H
 | Harness | Status | Source Inspiration |
 |---|---|---|
 | designer-knowledge-base | detailed pilot conversion | H100 64 knowledge-base-builder |
-| designer-audit-report | scaffold | H100 94 audit-report |
-| designer-brand-identity | scaffold | H100 06 brand-identity |
+| designer-audit-report | detailed pilot conversion | H100 94 audit-report |
+| designer-brand-identity | detailed pilot conversion | H100 06 brand-identity |
 | designer-visual-storytelling | scaffold | H100 15 visual-storytelling |
 | designer-design-system | scaffold | H100 36 design-system |
 | designer-space-concept-board | scaffold | H100 77 space-concept-board |

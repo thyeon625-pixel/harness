@@ -35,6 +35,8 @@ required = [
     'skills/designer-univers-harness/SKILL.md',
     'skills/designer-univers-expert-router/SKILL.md',
     'skills/designer-univers-knowledge-base/SKILL.md',
+    'skills/designer-univers-audit-report/SKILL.md',
+    'skills/designer-univers-brand-identity/SKILL.md',
 ]
 for rel in required:
     if not (ROOT / rel).exists(): err(f'missing required file: {rel}')
@@ -84,6 +86,30 @@ for p in agent_dir.glob('*.md'):
     for marker in ['runtime_targets:', 'role_class:', 'Protected Source Rules', 'Workspace Rules', 'Completion Criteria']:
         if marker not in text: err(f'{rel}: missing common spec marker {marker}')
 
+detailed_expected_agents = {
+    'designer-audit-report': {'audit-scope-designer', 'checklist-builder', 'findings-analyst', 'recommendation-writer', 'tracking-manager'},
+    'designer-brand-identity': {'brand-strategist', 'naming-specialist', 'copywriter', 'visual-director', 'identity-lens-reviewer'},
+}
+for harness_name, expected in detailed_expected_agents.items():
+    hdir = ROOT / 'docs/designer-univers/custom-harnesses' / harness_name
+    hfile = hdir / 'HARNESS.md'
+    if not hfile.exists():
+        err(f'{harness_name}: missing HARNESS.md')
+        continue
+    htext = hfile.read_text(encoding='utf-8', errors='ignore')
+    for marker in ['## Agent Team', '## Routing Matrix', '## Run Artifact Contract', '## Protected Source Rules', '## Dry-Run Prompt']:
+        if marker not in htext:
+            err(f'{hfile.relative_to(ROOT)}: missing detailed harness marker {marker}')
+    found = {p.stem for p in (hdir / 'agents').glob('*.md')}
+    if found != expected:
+        err(f'{harness_name} agents mismatch: expected {sorted(expected)}, found {sorted(found)}')
+    for ap in (hdir / 'agents').glob('*.md'):
+        atext = ap.read_text(encoding='utf-8', errors='ignore')
+        rel = ap.relative_to(ROOT)
+        for marker in ['runtime_targets:', 'protected_scope: strict', 'Protected Source Rules', 'Workspace Rules', 'Completion Criteria']:
+            if marker not in atext:
+                err(f'{rel}: missing detailed agent marker {marker}')
+
 positive_bad_patterns = ['create root `_workspace` as workspace', '프로젝트 루트에 생성한다', 'Create `_workspace/`']
 for p in list((ROOT / 'docs/designer-univers').rglob('*.md')) + list((ROOT / 'skills').glob('designer-univers*/**/*.md')):
     txt = p.read_text(encoding='utf-8', errors='ignore')
@@ -110,6 +136,7 @@ print('DESIGNER_UNIVERS_VALIDATE')
 print(f'required_files={len(required)}')
 print(f'custom_harnesses={len(harnesses)}')
 print(f'knowledge_base_agents={len(found_agents)}')
+print(f'detailed_harnesses={1 + len(detailed_expected_agents)}')
 print(f'warnings={len(warnings)}')
 for w in warnings: print('WARNING:', w)
 if errors:
