@@ -7,7 +7,7 @@ canonical_root: ${DESIGNER_UNIVERS_ROOT}
 allowed_modes: [read-only, draft-write]
 default_mode: read-only
 cost_tier: L1
-external_services: free-only public web lookup; paid reports, surveys, interviews, scraping, or private accounts require explicit approval
+external_services: none for synthetic pilots; free-only public lookup only after explicit routing plus safety-reviewer review
 protected_scope: strict
 handoff_protocol: file-ledger
 tool_policy: read only synthetic/project-approved references; write only under Designer Master/System/Runs/{run_id}; no external web/API lookup, paid/private account access, or private data upload
