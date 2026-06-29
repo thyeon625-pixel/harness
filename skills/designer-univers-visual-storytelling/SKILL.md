@@ -22,10 +22,12 @@ Use for private visual narrative planning, portfolio story drafts, reference-ana
 1. Route with `designer-univers-expert-router`; keep `default_cost_tier=L1` unless optional research/implementation/full review is explicitly requested.
 2. Keep all outputs under System/Runs path contracts described in `docs/designer-univers/custom-harnesses/designer-visual-storytelling/HARNESS.md`.
 3. Treat protected sources as read-only lenses and never upload raw images/materials to external tools without explicit user approval.
-4. Require the shared `safety-reviewer` before promotion candidates, public use, or canonical absorption.
+4. Require the shared `safety-reviewer` before promotion candidates, public use, canonical absorption, or any explicitly routed external/public lookup.
 5. In GitHub fork staging, describe intended paths only; do not create canonical Designer_Univers files.
 
 ## Verification
+
+External/public lookup is disabled for synthetic pilots. In real runs, even free-only public lookup requires explicit routing plus safety-reviewer review before use.
 
 - In GitHub fork staging, `python3 scripts/designer_univers_validate.py` passes.
 - In canonical Designer_Univers runtime, use `/Users/taehyeon/.hermes/scripts/designer_baseline_audit.sh --verbose`.
