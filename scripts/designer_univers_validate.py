@@ -37,6 +37,9 @@ required = [
     'skills/designer-univers-knowledge-base/SKILL.md',
     'skills/designer-univers-audit-report/SKILL.md',
     'skills/designer-univers-brand-identity/SKILL.md',
+    'skills/designer-univers-visual-storytelling/SKILL.md',
+    'skills/designer-univers-design-system/SKILL.md',
+    'skills/designer-univers-space-concept-board/SKILL.md',
 ]
 for rel in required:
     if not (ROOT / rel).exists(): err(f'missing required file: {rel}')
@@ -89,6 +92,9 @@ for p in agent_dir.glob('*.md'):
 detailed_expected_agents = {
     'designer-audit-report': {'audit-scope-designer', 'checklist-builder', 'findings-analyst', 'recommendation-writer', 'tracking-manager'},
     'designer-brand-identity': {'brand-strategist', 'naming-specialist', 'copywriter', 'visual-director', 'identity-lens-reviewer'},
+    'designer-visual-storytelling': {'story-architect', 'essay-writer', 'image-prompt-planner', 'layout-planner', 'editorial-reviewer'},
+    'designer-design-system': {'token-designer', 'pattern-designer', 'a11y-reviewer', 'documentation-writer', 'implementation-planner'},
+    'designer-space-concept-board': {'style-analyst', 'moodboard-designer', 'item-curator', 'budget-scope-planner', 'concept-reviewer'},
 }
 for harness_name, expected in detailed_expected_agents.items():
     hdir = ROOT / 'docs/designer-univers/custom-harnesses' / harness_name
