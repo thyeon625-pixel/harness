@@ -27,6 +27,9 @@ Use for interior/spatial atmosphere boards, material palettes, mood directions, 
 
 ## Verification
 
-- `python3 scripts/designer_univers_validate.py` passes in the fork.
+Purchase, checkout, account login, raw upload, and external shopping actions are disabled for synthetic pilots. Real sourcing requires separate approval plus safety review.
+
+- In GitHub fork staging, `python3 scripts/designer_univers_validate.py` passes.
+- In canonical Designer_Univers runtime, use `/Users/taehyeon/.hermes/scripts/designer_baseline_audit.sh --verbose`.
 - Outputs distinguish source evidence, interpretation, draft proposal, and approved knowledge.
 - No runtime/code/purchase/public action occurs without separate approval.

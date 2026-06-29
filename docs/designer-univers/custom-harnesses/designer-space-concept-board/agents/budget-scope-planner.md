@@ -10,6 +10,7 @@ cost_tier: L1
 external_services: free-only if public lookup is explicitly routed
 protected_scope: strict
 handoff_protocol: file-ledger
+tool_policy: read only synthetic/project-approved references; write only under Designer Master/System/Runs/{run_id}; no purchase, checkout, account access, raw upload, or external shopping action
 ---
 
 # budget-scope-planner
