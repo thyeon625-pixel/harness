@@ -10,6 +10,7 @@ cost_tier: L1
 external_services: free-only public web lookup; paid reports, surveys, interviews, scraping, or private accounts require explicit approval
 protected_scope: strict
 handoff_protocol: file-ledger
+tool_policy: read only synthetic/project-approved references; write only under Designer Master/System/Runs/{run_id}; no external web/API lookup, paid/private account access, or private data upload
 ---
 
 # trend-analyst

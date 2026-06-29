@@ -15,7 +15,7 @@ metadata:
 
 ## When to Use
 
-Use this staging skill when routing GitHub-only Designer_Univers harness work for `designer-market-research`. It is not installed into the canonical Designer_Univers runtime.
+Use this staging skill when routing GitHub-only Designer_Univers harness work for `designer-market-research`. It may be installed as a bounded canonical runtime pilot only after explicit user approval; otherwise it remains staging-only.
 
 ## Procedure
 
@@ -27,7 +27,10 @@ Use this staging skill when routing GitHub-only Designer_Univers harness work fo
 
 ## Verification
 
-- `python3 scripts/designer_univers_validate.py` passes in the fork.
+External web/API lookup and paid/private research accounts are disabled for synthetic pilots. Real research lookups require explicit routing, safety review, and user approval.
+
+- In GitHub fork staging, `python3 scripts/designer_univers_validate.py` passes.
+- In canonical Designer_Univers runtime, use `/Users/taehyeon/.hermes/scripts/designer_baseline_audit.sh --verbose`.
 - Outputs distinguish evidence, interpretation, proposal, and approved knowledge.
 - No runtime/canonical/public/external paid action occurs without separate approval.
 
