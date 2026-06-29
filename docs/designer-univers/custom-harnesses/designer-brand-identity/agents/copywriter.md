@@ -10,6 +10,7 @@ cost_tier: L1
 external_services: free-only if public benchmarks are required
 protected_scope: strict
 handoff_protocol: file-ledger
+tool_policy: read only synthetic/project-approved references; write only under Designer Master/System/Runs/{run_id}
 ---
 
 # copywriter
