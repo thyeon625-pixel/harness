@@ -10,6 +10,7 @@ cost_tier: L1
 external_services: none by default; public lookup or data tools require explicit route approval; live BI/ERP/database integration out of scope
 protected_scope: strict
 handoff_protocol: file-ledger
+tool_policy: read only synthetic/project-approved run artifacts; write only under Designer Master/System/Runs/{run_id}; no live BI/ERP/database/API connection, external upload, or publication
 ---
 
 # analysis-synthesizer

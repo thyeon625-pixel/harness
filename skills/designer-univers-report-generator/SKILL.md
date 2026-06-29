@@ -15,7 +15,7 @@ metadata:
 
 ## When to Use
 
-Use this staging skill when routing GitHub-only Designer_Univers harness work for `designer-report-generator`. It is not installed into the canonical Designer_Univers runtime.
+Use this staging skill when routing GitHub-only Designer_Univers harness work for `designer-report-generator`. It may be installed as a bounded canonical runtime pilot only after explicit user approval; otherwise it remains staging-only.
 
 ## Procedure
 
@@ -27,7 +27,10 @@ Use this staging skill when routing GitHub-only Designer_Univers harness work fo
 
 ## Verification
 
-- `python3 scripts/designer_univers_validate.py` passes in the fork.
+Live BI/ERP/database/API connections, external uploads, and public publishing are disabled for synthetic pilots. Real data/reporting connections require separate explicit approval plus safety review.
+
+- In GitHub fork staging, `python3 scripts/designer_univers_validate.py` passes.
+- In canonical Designer_Univers runtime, use `/Users/taehyeon/.hermes/scripts/designer_baseline_audit.sh --verbose`.
 - Outputs distinguish evidence, interpretation, proposal, and approved knowledge.
 - No runtime/canonical/public/external paid action occurs without separate approval.
 
