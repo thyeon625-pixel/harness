@@ -119,9 +119,8 @@ for p in sorted(set(text_files)):
     txt = p.read_text(encoding='utf-8', errors='ignore')
     for pat in positive_bad_patterns:
         if pat in txt: err(f'{p.relative_to(ROOT)}: positive root workspace instruction: {pat}')
-    for pat in ['canonical_root: /Users/taehyeon/', '/Users/taehyeon/Library/CloudStorage/Dropbox-Thyeon625/Designer_Univers']:
-        if pat in txt:
-            err(f'{p.relative_to(ROOT)}: hard-coded personal Designer_Univers path')
+    if 'canonical_root: /Users/' in txt or ('/Users/' in txt and 'Designer_Univers' in txt and 'CloudStorage' in txt):
+        err(f'{p.relative_to(ROOT)}: hard-coded personal Designer_Univers path')
 
 # Cost routing must remain cheap by default; full-team or canonical routes must be opt-in.
 for h in harnesses:
