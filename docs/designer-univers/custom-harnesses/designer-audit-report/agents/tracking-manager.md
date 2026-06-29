@@ -10,6 +10,7 @@ cost_tier: L1
 external_services: none
 protected_scope: strict
 handoff_protocol: file-ledger
+tool_policy: read project references; write only under Designer Master/System/Runs/{run_id}
 ---
 
 # tracking-manager

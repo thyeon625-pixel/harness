@@ -34,6 +34,7 @@ Use for folder, branch, governance, protection, worker, baseline, and absorption
 
 ## Verification
 
-- `python3 scripts/designer_univers_validate.py` passes in the fork.
+- In GitHub fork staging, `python3 scripts/designer_univers_validate.py` passes.
+- In canonical Designer_Univers runtime, use the manual baseline audit script instead: `/Users/taehyeon/.hermes/scripts/designer_baseline_audit.sh --verbose`.
 - Safety review exists for protected or absorption-related audits.
 - Findings distinguish evidence, interpretation, and proposed action.
