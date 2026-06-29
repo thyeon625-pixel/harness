@@ -27,6 +27,9 @@ Use for visual language/token/pattern planning, accessibility checks, and design
 
 ## Verification
 
-- `python3 scripts/designer_univers_validate.py` passes in the fork.
+Runtime code, Storybook, app builds, and generated token packages are disabled for synthetic pilots. Real implementation requires a separate approved software scope plus safety review.
+
+- In GitHub fork staging, `python3 scripts/designer_univers_validate.py` passes.
+- In canonical Designer_Univers runtime, use `/Users/taehyeon/.hermes/scripts/designer_baseline_audit.sh --verbose`.
 - Outputs distinguish source evidence, interpretation, draft proposal, and approved knowledge.
 - No runtime/code/purchase/public action occurs without separate approval.
