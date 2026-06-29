@@ -1,6 +1,6 @@
 # Absorption Plan: Designer_Univers Harness Layer
 
-This plan covers the future movement from the GitHub fork branch into the canonical Designer_Univers workspace. It is not executed yet.
+This plan covers a future movement from the GitHub fork branch into the canonical Designer_Univers workspace. It is not executed yet.
 
 ## Source
 
@@ -8,6 +8,7 @@ This plan covers the future movement from the GitHub fork branch into the canoni
 repo: thyeon625-pixel/harness
 branch: feat/designer-univers-harness
 latest_known_commit: record-remote-sha-immediately-before-absorption
+validated_scope: 10 first-priority detailed pilots
 ```
 
 Before absorption, Hermes must update `latest_known_commit` to the actual remote SHA from:
@@ -16,42 +17,68 @@ Before absorption, Hermes must update `latest_known_commit` to the actual remote
 git ls-remote --heads origin feat/designer-univers-harness
 ```
 
-This is the same remote-source verification required by `hermes-review-protocol.md` Step 1. If the SHA in this plan does not match the branch head being absorbed, stop and re-run review.
+If the SHA in this plan does not match the branch head being absorbed, stop and re-run review.
 
 ## Absorption Principle
 
 Absorb the **minimum validated subset**, not the whole fork. The fork remains the design/staging repository.
 
-## Target Paths
+## Available Detailed Pilots
 
-| Source Artifact | Future Target | Absorption Mode |
-|---|---|---|
-| `docs/designer-univers/target-structure-current-aware.md` | `Designer Master/System/_drafts/harness-adaptation/` | draft only |
-| `docs/designer-univers/expert-pool-router-design.md` | `Designer Master/System/_drafts/harness-adaptation/` then maybe `System/Rules` | draft then approval |
-| `docs/designer-univers/custom-harnesses/designer-knowledge-base/` | `Designer Master/System/Harnesses/designer-knowledge-base/` | staged harness |
-| `skills/designer-univers-expert-router/SKILL.md` | `Designer Master/.claude/skills/designer-univers-expert-router/SKILL.md` | runtime skill candidate |
-| `skills/designer-univers-knowledge-base/SKILL.md` | `Designer Master/.claude/skills/designer-univers-knowledge-base/SKILL.md` | runtime skill candidate |
-| converted agents under `designer-knowledge-base/agents/` | only selected `.claude/agents/` or worker docs | after mapping |
+```text
+designer-knowledge-base
+designer-audit-report
+designer-brand-identity
+designer-visual-storytelling
+designer-design-system
+designer-space-concept-board
+designer-market-research
+designer-report-generator
+designer-technical-writer
+designer-operations-manual
+```
 
-## Stages
+## Recommended Stage Order
 
-### Stage 1 — Draft Import
+### Stage 0 — User Decision
 
-Copy only docs into `Designer Master/System/_drafts/harness-adaptation/`. No runtime agent/skill activation yet.
+Use `decision-package.md`, `absorption-scenarios.md`, and `decision-checklist.md`. No file copy happens in this stage.
 
-### Stage 2 — Review
+### Stage 1 — Docs-Only Draft Copy, if approved
 
-- Hermes validates files and paths.
-- Claude Code reviews from `_ReviewLedger.md` or a dedicated review instruction.
-- `designer_reviewer` checks safety boundaries.
+Copy only selected docs into:
 
-### Stage 3 — Runtime Candidate
+```text
+Designer Master/System/_drafts/harness-adaptation/
+```
 
-Copy selected skills into `.claude/skills/` with `SKILL.md` names. Do not overwrite existing skills without a diff.
+No runtime agent/skill activation.
 
-### Stage 4 — Pilot Run
+### Stage 2 — Review Draft Copy
 
-Run `designer-univers-knowledge-base` in draft-write mode only under `Designer Master/System/Runs/{run_id}/`. No Designer Earth or System/Rules writes.
+- Hermes validates copied files and paths.
+- Claude Code reviews from the ReviewLedger or a dedicated review instruction.
+- `safety-reviewer` / `designer_reviewer` checks safety boundaries.
+
+### Stage 3 — Single Runtime Candidate, if later approved
+
+Copy one selected skill/agent set into runtime candidate paths. Recommended first candidate, if any:
+
+```text
+designer-knowledge-base
+```
+
+Do not overwrite existing skills/agents without a diff and explicit approval.
+
+### Stage 4 — Draft-Write Pilot Run
+
+Run only under:
+
+```text
+Designer Master/System/Runs/{run_id}/
+```
+
+No Designer Earth, System/Rules, external service, or public output writes.
 
 ### Stage 5 — Promotion Decision
 

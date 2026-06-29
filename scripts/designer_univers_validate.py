@@ -27,6 +27,11 @@ required = [
     'docs/designer-univers/custom-harnesses/designer-knowledge-base/HARNESS.md',
     'docs/designer-univers/pre-absorption/absorption-plan.md',
     'docs/designer-univers/pre-absorption/absorption-readiness-checklist.md',
+    'docs/designer-univers/pre-absorption/decision-package.md',
+    'docs/designer-univers/pre-absorption/docs-only-candidates.md',
+    'docs/designer-univers/pre-absorption/non-absorption-boundaries.md',
+    'docs/designer-univers/pre-absorption/absorption-scenarios.md',
+    'docs/designer-univers/pre-absorption/decision-checklist.md',
     'docs/designer-univers/pre-absorption/dry-run-scenarios.md',
     'docs/designer-univers/pre-absorption/claude-review-request.md',
     'docs/designer-univers/pre-absorption/hermes-review-protocol.md',
@@ -160,6 +165,31 @@ for harness_name in detailed_expected_agents:
     rel = f'docs/designer-univers/custom-harnesses/{harness_name}/HARNESS.md'
     if (ROOT / rel).exists() and 'Shared Safety Reviewer' not in read(rel):
         err(f'{rel}: missing shared safety-reviewer cross-reference')
+
+
+# Final decision package must preserve non-absorption and scenario boundaries.
+for rel in [
+    'docs/designer-univers/pre-absorption/decision-package.md',
+    'docs/designer-univers/pre-absorption/docs-only-candidates.md',
+    'docs/designer-univers/pre-absorption/non-absorption-boundaries.md',
+    'docs/designer-univers/pre-absorption/absorption-scenarios.md',
+    'docs/designer-univers/pre-absorption/decision-checklist.md',
+]:
+    if (ROOT / rel).exists():
+        txt = read(rel)
+        for marker in ['Designer_Univers', 'approval']:
+            if marker not in txt:
+                err(f'{rel}: missing decision marker {marker}')
+if (ROOT / 'docs/designer-univers/pre-absorption/decision-package.md').exists():
+    txt = read('docs/designer-univers/pre-absorption/decision-package.md')
+    for marker in ['Option A', 'Option B', 'Option C', 'do not absorb runtime artifacts']:
+        if marker not in txt:
+            err(f'decision-package.md missing {marker}')
+if (ROOT / 'docs/designer-univers/pre-absorption/non-absorption-boundaries.md').exists():
+    txt = read('docs/designer-univers/pre-absorption/non-absorption-boundaries.md')
+    for marker in ['Runtime Skills Not Approved', 'Active Agents Not Approved', 'Governance Rules Not Approved', 'Knowledge Writes Not Approved']:
+        if marker not in txt:
+            err(f'non-absorption-boundaries.md missing {marker}')
 
 safety_terms = ['_Identity', '_Philosophy', 'Personal Thinking', 'Personal Inspiration', 'Eagle', 'Work Files']
 for rel in ['docs/designer-univers/protected-source-injection.md', 'docs/designer-univers/custom-harnesses/designer-knowledge-base/HARNESS.md']:

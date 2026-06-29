@@ -5,9 +5,9 @@ Use this checklist before moving any artifact from the GitHub fork into the cano
 ## Repository Readiness
 
 - [ ] Branch is pushed to `thyeon625-pixel/harness:feat/designer-univers-harness`.
-- [ ] Latest remote commit is recorded in the absorption plan.
+- [ ] Latest remote commit is recorded in the absorption plan immediately before copying.
 - [ ] Validation script passes locally.
-- [ ] Raw GitHub URLs for key files are reachable.
+- [ ] Raw GitHub URLs or GitHub Contents API for key files are reachable.
 - [ ] No private tokens, secrets, or protected-source content are present in the fork.
 
 ## Structural Readiness
@@ -42,10 +42,18 @@ Use this checklist before moving any artifact from the GitHub fork into the cano
 - [ ] L0/L1/L2/L3 tier definitions are present.
 - [ ] Batch strategy uses inventory → sample → cluster → selected deep review.
 
+## Decision Readiness
+
+- [ ] `decision-package.md` is reviewed.
+- [ ] `docs-only-candidates.md` is reviewed if docs-only is considered.
+- [ ] `non-absorption-boundaries.md` is reviewed.
+- [ ] `absorption-scenarios.md` is reviewed and a scenario is chosen.
+- [ ] `decision-checklist.md` is completed before any canonical write.
+
 ## Review Readiness
 
 - [ ] Claude review request is prepared.
 - [ ] Hermes review protocol is prepared.
 - [ ] Dry-run scenarios are prepared.
-- [ ] Absorption plan lists exact target paths and rollback options.
+- [ ] Absorption plan or decision package lists exact target paths and rollback options.
 - [ ] User approval is required before canonical absorption.
