@@ -10,6 +10,7 @@ cost_tier: L1
 external_services: none by default; code execution, hosting, or repo writes require explicit software scope approval
 protected_scope: strict
 handoff_protocol: file-ledger
+tool_policy: read only synthetic/project-approved references; write only under Designer Master/System/Runs/{run_id}; no runtime code edits, System/Rules writes, Designer Earth writes, or public publishing
 ---
 
 # version-controller
