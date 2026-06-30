@@ -15,7 +15,7 @@ metadata:
 
 ## When to Use
 
-Use this staging skill when routing GitHub-only Designer_Univers harness work for `designer-operations-manual`. It is not installed into the canonical Designer_Univers runtime.
+Use this staging skill when routing GitHub-only Designer_Univers harness work for `designer-operations-manual`. It may be installed as a bounded canonical runtime pilot only after explicit user approval; otherwise it remains staging-only.
 
 ## Procedure
 
@@ -27,7 +27,10 @@ Use this staging skill when routing GitHub-only Designer_Univers harness work fo
 
 ## Verification
 
-- `python3 scripts/designer_univers_validate.py` passes in the fork.
+Actual workflow/procedure changes, System/Rules writes, Designer Earth writes, and public publishing are disabled for synthetic pilots. Real operations-manual promotion requires separate approval plus safety review.
+
+- In GitHub fork staging, `python3 scripts/designer_univers_validate.py` passes.
+- In canonical Designer_Univers runtime, use `/Users/taehyeon/.hermes/scripts/designer_baseline_audit.sh --verbose`.
 - Outputs distinguish evidence, interpretation, proposal, and approved knowledge.
 - No runtime/canonical/public/external paid action occurs without separate approval.
 

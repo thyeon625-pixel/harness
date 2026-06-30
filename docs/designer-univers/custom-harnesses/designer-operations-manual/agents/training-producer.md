@@ -10,6 +10,7 @@ cost_tier: L1
 external_services: none by default; system changes, automations, credentials, or account actions require explicit approval
 protected_scope: strict
 handoff_protocol: file-ledger
+tool_policy: read only synthetic/project-approved references; write only under Designer Master/System/Runs/{run_id}; no actual workflow changes, System/Rules writes, Designer Earth writes, or public publishing
 ---
 
 # training-producer
